@@ -1,0 +1,1 @@
+Experimenting simple parallax effects following this Youtube video https://www.youtube.com/watch?v=TawH-AqHTXc

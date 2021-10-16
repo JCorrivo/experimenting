@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Experimenting some Parallax Effects</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="script" type="text/javascript" href="script.js" />
+    </head>
+
+    <section>
+        <img src="assets/bg.jpg" id="bg" alt="stars background" />
+        <img src="assets/moon.png" id="moon" alt="moon in the sky" />
+        <img src="assets/mountain.png" id="mount" alt="mountain landscape" />
+        <img src="assets/road.png" id="road" alt="road" />
+        <h2 id="title">Moon light</h2>
+    </section>
+
+    <script type="text/javascript">
+
+        const bg = document.getElementById("bg");
+        const moon = document.getElementById("moon");
+        const mount = document.getElementById("mount");
+        const road = document.getElementById("road");
+        const title = document.getElementById("title");
+
+        window.addEventListener('scroll', function() {
+            const y_value = this.window.scrollY;
+
+            bg.style.top = `${y_value * .5}px`;
+            moon.style.left = `${-y_value * .5}px`;
+            mount.style.top = `${-y_value * .15}px`;
+            road.style.top = `${y_value * .15}px`;
+            title.style.top = `${y_value}px`;
+        });
+
+    </script>
+</html>
