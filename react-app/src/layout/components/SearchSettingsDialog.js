@@ -6,8 +6,9 @@ import IconButton from '@mui/material/IconButton';
 import DialogContent from '@mui/material/DialogContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import DialogActions from '@mui/material/DialogActions';
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -42,28 +43,34 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     );
   };
 
-const SearchSettingsDialog = ({ open, handleClose }) => (
-  <BootstrapDialog
-    onClose={handleClose}
-    aria-labelledby="settings dialog"
-    open={open}
-  >
-    <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-      Search settings
-    </BootstrapDialogTitle>
-    <DialogContent dividers>
-      <Typography gutterBottom>
-        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-        magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-        ullamcorper nulla non metus auctor fringilla.
-      </Typography>
-    </DialogContent>
-    <DialogActions>
-      <Button autoFocus onClick={handleClose}>
-        Save changes
-      </Button>
-    </DialogActions>
-  </BootstrapDialog>
-);
+const SearchSettingsDialog = ({ open, handleClose }) => {
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  return (
+    <BootstrapDialog
+        // onClose={handleClose}
+        aria-labelledby="settings dialog"
+        open={open}
+        fullScreen={fullScreen}
+    >
+      <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+        Search settings
+      </BootstrapDialogTitle>
+      <DialogContent dividers>
+        <Typography gutterBottom>
+          Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
+          magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
+          ullamcorper nulla non metus auctor fringilla.
+        </Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button autoFocus onClick={handleClose}>
+            Save changes
+        </Button>
+      </DialogActions>
+    </BootstrapDialog>
+  );
+};
 
 export default SearchSettingsDialog;

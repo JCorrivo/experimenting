@@ -40,7 +40,10 @@ export default function SearchInput() {
         <SettingsIcon />
       </IconButton>
       
-      <SearchSettingsDialog open={open} handleClose={handleClose} />
+      <SearchSettingsDialog 
+        open={open} 
+        handleClose={handleClose} 
+      />
     </Paper>
   );
 }
