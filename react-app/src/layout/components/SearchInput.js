@@ -1,11 +1,22 @@
+import React from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import SettingsIcon from '@mui/icons-material/Settings'; 
+import SearchSettingsDialog from './SearchSettingsDialog';
 
 export default function SearchInput() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
   return (
     <Paper
       component="form"
@@ -20,9 +31,16 @@ export default function SearchInput() {
         <SearchIcon />
       </IconButton>
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-      <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
+      <IconButton 
+        color="primary" 
+        sx={{ p: '10px' }} 
+        aria-label="settings" 
+        onClick={handleClickOpen}
+      >
         <SettingsIcon />
       </IconButton>
+      
+      <SearchSettingsDialog open={open} handleClose={handleClose} />
     </Paper>
   );
 }
