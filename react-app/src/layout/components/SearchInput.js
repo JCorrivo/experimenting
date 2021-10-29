@@ -13,6 +13,7 @@ export default function SearchInput() {
   const handleClickOpen = () => {
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
   };
