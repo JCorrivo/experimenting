@@ -17,8 +17,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import ToggleButton from '@mui/material/ToggleButton';
 import Slider from '@mui/material/Slider'
 import Box from '@mui/material/Box'
-import Stack from '@mui/material/Stack'
-import SearchSettingsContext from './SearchSettingsContext';
+import SearchSettingsContext from '../../common/contexts/SearchSettingsContext';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {

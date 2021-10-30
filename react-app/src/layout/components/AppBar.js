@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { AppBar as MuiAppBar } from '@mui/material';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import Stack from '@mui/material/Stack';
 import SearchInput from './SearchInput';
-import SearchSettingsContext from './SearchSettingsContext';
+import SearchSettingsContext from '../../common/contexts/SearchSettingsContext';
+import { ReactComponent as SportIcon} from '../../assets/icons/short_quickdraw.svg';
+import TradIcon from '../../common/components/icons/TradIcon';
 
 const AppBar = React.forwardRef((props, ref) => {
   const [ searchSettings, setSearchSettings ] = useState({
@@ -16,6 +19,14 @@ const AppBar = React.forwardRef((props, ref) => {
     <MuiAppBar {...props} ref={ref}>
       <SearchSettingsContext.Provider value={{ searchSettings, setSearchSettings }}>
         <Toolbar>
+          <Stack direction="row" spacing={1}>
+            {searchSettings.routeTypes.includes('sport') && (
+              <SportIcon color="action" style={{ width: 30}} />
+            )}
+            {searchSettings.routeTypes.includes('trad') && (
+              <TradIcon transform="rotate(-45)" fontSize="large" />
+            )}            
+          </Stack>
           <Box sx={{ flexGrow: 1 }} />
           <SearchInput />
         </Toolbar>
