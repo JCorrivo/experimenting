@@ -15,7 +15,7 @@ export default function LayoutPage(props) {
   }
 
   return (
-    <React.Fragment>
+    <> {/* Short syntax for React.Fragment */}
       <HideOnScroll {...props}>
         <AppBar />
       </HideOnScroll>
@@ -25,7 +25,7 @@ export default function LayoutPage(props) {
           {props.children}
         </Box>
       </Container>
-    </React.Fragment>
+    </>
   );
 } 
 
